@@ -30,8 +30,9 @@ jobs:
         run: echo "test1 $MY_VARIABLE"
 
       - name: echo 3
-        run: echo "about to echo3.."
-           for sample in ${{ env.MY_VARIABLE }}; do
+        run: |
+           for sample in ${{ env.MY_VARIABLE }} 
+           do
                echo "test3 - $sample "
            done
            
