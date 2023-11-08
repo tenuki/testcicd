@@ -16,6 +16,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       MY_VARIABLE: "uno dos tres"
+      MY_VARIABLE2: "uno,dos,tres"
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
@@ -29,9 +30,15 @@ jobs:
         run: echo "test1 $MY_VARIABLE"
 
       - name: echo 2
-        run: 
+        run: echo "about to echo2.."
            for sample in $MY_VARIABLE; do
-               echo "test2 - $sample"
+               echo "test2 - $sample "
+           done
+           
+      - name: echo 3
+        run: echo "about to echo3.."
+           for sample in ${{ env.MY_VARIABLE }}; do
+               echo "test3 - $sample "
            done
            
       # Runs a set of commands using the runners shell
