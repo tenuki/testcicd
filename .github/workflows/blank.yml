@@ -29,12 +29,6 @@ jobs:
       - name: echo 1
         run: echo "test1 $MY_VARIABLE"
 
-      - name: echo 2
-        run: echo "about to echo2.."
-           for sample in $MY_VARIABLE; do
-               echo "test2 - $sample "
-           done
-           
       - name: echo 3
         run: echo "about to echo3.."
            for sample in ${{ env.MY_VARIABLE }}; do
